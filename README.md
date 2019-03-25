@@ -1,7 +1,7 @@
 # diffusion-on-networks
 project at University of Oxford simulating contagion and network diffusion
 
-This project is based on The Diffusion of Microfinance
+This project is based on The Diffusion of Microfinance and respective data by Banerjee et al. (DOI: 10.1126/science.1236498)
 Looks at the community structure of social networks in Indian villages
 Uses homophily via assortativity to try to establish some pattern of program adoption (contagion)
 Simulates a model of diffusion on the network
