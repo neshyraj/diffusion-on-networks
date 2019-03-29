@@ -9,7 +9,9 @@ Simulates a model of diffusion on the network
 Project done as part of the class C5.10 Mathematics and Data Science for Development
 
 processing and plot - imports data and converts to igraph objects for analysis and computations. does plotting for visualization
+
 diffusion v2 - diffusion model
+
 variationinfo - calculates variation of information after rewiring and plots to check for robustness of communities
 
 Completed March 26th 2019
