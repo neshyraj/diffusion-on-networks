@@ -16,4 +16,4 @@ variationinfo - calculates variation of information after rewiring and plots to 
 
 document - written report
 
-Completed March 26th 2019
+Completed March 27th 2019
