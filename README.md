@@ -20,7 +20,7 @@ householdcharacteristics - characteristics such as caste, religion, leader statu
 
 leaders - implement leader choosing strategy and train logistic regression models on chosen leaders' household characteristics
 
-plot - various plots for analysis/visualization as well as linear regressions to see effect of attributes/characteristics on adoption
+plot - various plots for analysis/visualization as well as linear regressions to see effect of attributes/characteristics on adoption at each diffusion timestep
 
 process - import and prepare data for analysis by reformatting, creating networks and setting network attributes. heavily uses igraph.
 
