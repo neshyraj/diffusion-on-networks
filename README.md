@@ -14,6 +14,8 @@ document - written report. first page is a policy brief and rest is an article i
 
 householdcharacteristics - characteristics such as caste, religion, leader status etc. for each of the households across all villages
 
+process - import and prepare data for analysis by reformatting, creating networks and setting network attributes
+
 processing and plot - imports data and converts to igraph objects for analysis and computations. does plotting for visualization
 
 variationinfo - calculates variation of information after rewiring and plots to check for robustness of communities
