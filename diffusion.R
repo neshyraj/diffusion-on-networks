@@ -1,19 +1,23 @@
 #Trimesters for each village for diffusion centrality from paper
+#Approx. number of trimesters for which program was run in each village
 ti <- c(9,10,5,10,5,2,9,3,9,10,9,9,6,7,8,8,7,7,7,8,8,7,6,5,6,5,6,6,6,6,7,5,4,5,4,6,6,6,6,6,6,6,6)
 
-#To run diffusion simulations. Initial infected/contagious ie leaders who adopt and not adopt. This version only allows adoption once, but can still pass information
-diffusion <- function(g,tf,pac,pad,pnc,pnd,model){
+#To run diffusion simulations. Initial infected/contagious ie leaders who adopt and not adopt. 
+#This version only allows adoption once, but can still pass information
+#g - network as an igraph object
+#tf - time to run
+#p_a_c - probability to adopt given neighbor adopted and in same caste
+#p_a_d - probability to adopt given neighbor adopted and in different caste 
+#p_n_c - probability to adopt given neighbor did not adopt and in same caste
+#p_n_d - probability to adopt given neighbor did not adopt and in different caste
+#model - logistic regression model trained on pre-determined set of leaders
+diffusion <- function(g,tf,p_a_c,p_a_d,p_n_c,p_n_d,model){
   contagious <- as.vector(V(gra[[g]])[V(gra[[g]])$name %in% leaders[[g]] & V(gra[[g]])$adopt == 1])
   infected <- as.vector(V(gra[[g]])[V(gra[[g]])$name %in% leaders[[g]] & V(gra[[g]])$adopt == 2])
   recovered <- NULL
   village <- household[household$village == g,]
   drop <- c("village","HHnum_in_village","leader","rooftype1","rooftype2","rooftype3","rooftype4","rooftype5","room_no","bed_no","electricity","latrine","ownrent")
   village <- village[, !names(village) %in% drop]
-  #Probabilities to pass on. Assumed.
-  p_a_c <- pac
-  p_n_c <- pnc
-  p_a_d <- pad
-  p_n_d <- pnd
   #Probability to adopt. Would be linear model depending on vertex
   #timestep
   informed <- rep(list(vector()),nrow(conadjmat[[g]]))
@@ -169,6 +173,7 @@ diffusion <- function(g,tf,pac,pad,pnc,pnd,model){
   return(list(clust_time,adopt_rate))
 }
 
+#Different runs of diffusion model
 #runs_new_const <- list()
 for (i in 1:50){
   runs_new_const[[i]] <- diffusion(30,ti[30],0.35,0.35,0.05,0.05,model_new)
@@ -189,7 +194,7 @@ for (i in 1:50){
   runs_com_alt[[i]] <- diffusion(30,ti[30],0.42,0.28,0.06,0.04,model_com)
 }
 
-#Diffusion centrality
+#Diffusion centrality calculation as given in paper by Banerjee et al.
 diff_cent <- function(g,t){
   a <- as.matrix(get.adjacency(g, type = "both"))
   q <- 1/max(eigen(a)$values)
@@ -204,7 +209,7 @@ diff_cent <- function(g,t){
   return(d)
 }
 
-#Regress adoption on diffusion centrality to test
+#Regress adoption on diffusion centrality to test relationship significance
 mean_diff_lead <- NULL
 for (i in 1:43){
   d <- diff_cent(gra[[i]],ti[i])
