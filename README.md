@@ -8,7 +8,7 @@ Project done as part of the class C5.10 Mathematics and Data Science for Develop
 
 processing and plot - imports data and converts to igraph objects for analysis and computations. does plotting for visualization
 
-diffusion v2 - diffusion model
+diffusion - function to run diffusion model and function to calculate diffusion centrality
 
 variationinfo - calculates variation of information after rewiring and plots to check for robustness of communities
 
