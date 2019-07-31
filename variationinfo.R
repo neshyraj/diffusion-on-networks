@@ -1,4 +1,5 @@
 #To calculate variaton of information
+install.packages("mcclust")
 vi <- function(g){
 v_orig <- NULL
 v_con <- NULL
