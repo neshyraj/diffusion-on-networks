@@ -14,6 +14,6 @@ diffusion v2 - diffusion model
 
 variationinfo - calculates variation of information after rewiring and plots to check for robustness of communities
 
-document - written report
+document - written report. first page is a policy brief and rest is an article in PNAS format
 
 Completed March 27th 2019
