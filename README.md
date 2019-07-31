@@ -10,13 +10,19 @@ adjmat1 - adjacency matrix of one village. each row/column represents a househol
 
 calcs_clust - various calculations such as assortativty, mixing matrix, adoption etc. as well as Louvain and spectral clustering
 
+datacom/datanew - manually generated files used for plotting community level adoption
+
 diffusion - function to run diffusion model and function to calculate diffusion centrality
 
 document - written report. first page is a policy brief and rest is an article in PNAS format
 
 householdcharacteristics - characteristics such as caste, religion, leader status etc. for each of the households across all villages
 
-process - import and prepare data for analysis by reformatting, creating networks and setting network attributes
+leaders - implement leader choosing strategy and train logistic regression models on chosen leaders' household characteristics
+
+plot - various plots for analysis/visualization as well as linear regressions to see effect of attributes/characteristics on adoption
+
+process - import and prepare data for analysis by reformatting, creating networks and setting network attributes. heavily uses igraph.
 
 processing and plot - imports data and converts to igraph objects for analysis and computations. does plotting for visualization
 
