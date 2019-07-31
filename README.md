@@ -8,6 +8,8 @@ Project done as part of the class C5.10 Mathematics and Data Science for Develop
 
 adjmat1 - adjacency matrix of one village. each row/column represents a household. all adjacency matrices found at link above.
 
+calcs_clust - various calculations such as assortativty, mixing matrix, adoption etc. as well as Louvain and spectral clustering
+
 diffusion - function to run diffusion model and function to calculate diffusion centrality
 
 document - written report. first page is a policy brief and rest is an article in PNAS format
