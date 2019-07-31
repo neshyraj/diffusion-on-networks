@@ -12,14 +12,16 @@ ti <- c(9,10,5,10,5,2,9,3,9,10,9,9,6,7,8,8,7,7,7,8,8,7,6,5,6,5,6,6,6,6,7,5,4,5,4
 #p_n_d - probability to adopt given neighbor did not adopt and in different caste
 #model - logistic regression model trained on pre-determined set of leaders
 diffusion <- function(g,tf,p_a_c,p_a_d,p_n_c,p_n_d,model){
+  #assign variables before running diffusion
   contagious <- as.vector(V(gra[[g]])[V(gra[[g]])$name %in% leaders[[g]] & V(gra[[g]])$adopt == 1])
   infected <- as.vector(V(gra[[g]])[V(gra[[g]])$name %in% leaders[[g]] & V(gra[[g]])$adopt == 2])
   recovered <- NULL
   village <- household[household$village == g,]
   drop <- c("village","HHnum_in_village","leader","rooftype1","rooftype2","rooftype3","rooftype4","rooftype5","room_no","bed_no","electricity","latrine","ownrent")
   village <- village[, !names(village) %in% drop]
-  #Probability to adopt. Would be linear model depending on vertex
-  #timestep
+  #run diffusion for tf timesteps
+  #go through each of the neighbors of the infected or informed households
+  #infect each of those households based on probability for them to adopt, as well as probability for them to be informed in the first place
   informed <- rep(list(vector()),nrow(conadjmat[[g]]))
   clust_time <- list()
   adopt_rate <- NULL
@@ -173,23 +175,23 @@ diffusion <- function(g,tf,p_a_c,p_a_d,p_n_c,p_n_d,model){
   return(list(clust_time,adopt_rate))
 }
 
-#Different runs of diffusion model
-#runs_new_const <- list()
+#Different runs of diffusion model. See document for details and results
+runs_new_const <- list()
 for (i in 1:50){
   runs_new_const[[i]] <- diffusion(30,ti[30],0.35,0.35,0.05,0.05,model_new)
 }
 
-#runs_com_const <- list()
+runs_com_const <- list()
 for (i in 1:50){
   runs_com_const[[i]] <- diffusion(30,ti[30],0.35,0.35,0.05,0.05,model_com)
 }
 
-#runs_new_alt <- list()
+runs_new_alt <- list()
 for (i in 1:50){
   runs_new_alt[[i]] <- diffusion(30,ti[30],0.42,0.28,0.06,0.04,model_new)
 }
 
-#runs_com_alt <- list()
+runs_com_alt <- list()
 for (i in 1:50){
   runs_com_alt[[i]] <- diffusion(30,ti[30],0.42,0.28,0.06,0.04,model_com)
 }
