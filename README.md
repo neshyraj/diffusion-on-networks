@@ -6,7 +6,7 @@ Looks at the community structure of social networks in Indian villages. Uses hom
 
 Project done as part of the class C5.10 Mathematics and Data Science for Development with Dr. Neave O'Clery
 
-adjmat1 - adjacency matrix of one village. each row/column represents a household
+adjmat1 - adjacency matrix of one village. each row/column represents a household. all adjacency matrices found at link above.
 
 diffusion - function to run diffusion model and function to calculate diffusion centrality
 
