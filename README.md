@@ -6,12 +6,16 @@ Looks at the community structure of social networks in Indian villages. Uses hom
 
 Project done as part of the class C5.10 Mathematics and Data Science for Development with Dr. Neave O'Clery
 
-processing and plot - imports data and converts to igraph objects for analysis and computations. does plotting for visualization
+adjmat1 - adjacency matrix of one village. each row/column represents a household
 
 diffusion - function to run diffusion model and function to calculate diffusion centrality
 
-variationinfo - calculates variation of information after rewiring and plots to check for robustness of communities
-
 document - written report. first page is a policy brief and rest is an article in PNAS format
+
+householdcharacteristics - characteristics such as caste, religion, leader status etc. for each of the households across all villages
+
+processing and plot - imports data and converts to igraph objects for analysis and computations. does plotting for visualization
+
+variationinfo - calculates variation of information after rewiring and plots to check for robustness of communities
 
 Completed March 27th 2019
