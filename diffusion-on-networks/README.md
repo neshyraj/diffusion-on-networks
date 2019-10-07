@@ -1,4 +1,7 @@
 # diffusion-on-networks
+
+Completed March 27th 2019
+
 Project at University of Oxford simulating contagion and network diffusion, where the adoption of a microfinance program is the "contagion" and the networks are connections within various small villages in India.
 
 This project is based on The Diffusion of Microfinance and respective data by Banerjee et al. One adjacency matrix and household characteristcs included here, but full article and full data + source found at (DOI: 10.1126/science.1236498)
@@ -27,5 +30,3 @@ process - import and prepare data for analysis by reformatting, creating network
 processing and plot - imports data and converts to igraph objects for analysis and computations. does plotting for visualization
 
 variationinfo - calculates variation of information after rewiring and plots to check for robustness of communities
-
-Completed March 27th 2019
